@@ -1,0 +1,28 @@
+{
+    "name": "torounit/vanilla",
+    "description": "Vanilla is the simple theme for blogging. And for single column modern websites.",
+    "type": "wordpress-theme",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.6",
+        "wp-coding-standards/wpcs": "^0.10.0"
+    },
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Hiroshi Urabe",
+            "email": "mail@torounit.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "post-install-cmd": [
+            "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+        ],
+        "post-update-cmd": [
+            "php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
+        ],
+        "phpcs": [
+            "php vendor/bin/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php"
+        ]
+    }
+}

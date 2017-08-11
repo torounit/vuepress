@@ -1,0 +1,77 @@
+{
+  "name": "@torounit/wp-vue-theme",
+  "version": "0.0.1",
+  "description": "Vanilla is the simple theme for blogging. And for single column modern websites.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torounit/vanilla.git"
+  },
+  "author": {
+    "name": "Toro_Unit",
+    "email": "mail@torounit.com",
+    "url": "https://torounit.com"
+  },
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/torounit/vanilla/issues"
+  },
+  "homepage": "https://torounit.com/vanilla",
+  "scripts": {
+    "build": "gulp build",
+    "gulp": "gulp",
+    "start": "gulp",
+    "dist": "gulp dist",
+    "release": "gulp release"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.4.0",
+    "browserify-shim": "^3.8.14",
+    "css-mqpacker": "^6.0.1",
+    "gulp": "^3.9.1",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-debug": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-watch": "^4.3.11",
+    "gulp-zip": "^4.0.0",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vueify": "^9.4.1",
+    "watchify": "^3.9.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "es2016",
+      "latest"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "underscore": "global:_"
+  },
+  "browser": {
+    "vue": "vue/dist/vue.common"
+  },
+  "dependencies": {
+    "normalize.css": "^7.0.0",
+    "vue": "^2.4.2",
+    "vue-router": "^2.7.0",
+    "vuex": "^2.3.1",
+    "vuex-router-sync": "^4.2.0",
+    "wpapi": "^1.1.2"
+  }
+}
