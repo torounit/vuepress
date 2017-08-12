@@ -26,19 +26,3 @@
     }
   }
 </script>
-
-<style scoped lang="stylus" rel="stylesheet/stylus">
-  .Posts__item {
-    padding 16px;
-    width 100%;
-    box-sizing border-box;
-    box-shadow 0 1px 1px #ccc
-    display flex
-  }
-
-  .Posts__item-title {
-    padding 0 4px
-    flex: 1 0 auto;
-    width: 100%;
-  }
-</style>

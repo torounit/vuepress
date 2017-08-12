@@ -34,14 +34,14 @@
     },
   }
 </script>
-<style lang="stylus" rel="stylesheet/stylus">
-  //@import '~normalize.css/normalize.css';
-  :root {
+<style>
+
+  html {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   }
 
   body {
-    margin 0;
+    margin: 0;
   }
 
 </style>

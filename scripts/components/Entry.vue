@@ -31,10 +31,10 @@
   }
 </script>
 
-<style scoped lang="stylus" rel="stylesheet/stylus">
+<style scoped>
   .Entry {
-    padding 16px;
-    width 100%;
+    padding: 16px;
+    width: 100%;
     box-sizing: border-box;
     box-shadow: 0 1px 1px #ccc;
   }
