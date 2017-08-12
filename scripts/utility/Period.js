@@ -6,7 +6,6 @@ export default class Period {
     this._day = null
   }
 
-
   set year(value) {
     this._year = value;
   }
@@ -24,31 +23,31 @@ export default class Period {
       return null;
     }
 
-    if(this._month === null) {
+    if (this._month === null) {
       return new Date(this._year, 0, 1, 0, 0);
     }
 
-    if(this._day === null) {
+    if (this._day === null) {
       return new Date(this._year, this._month - 1, 1, 0, 0);
     }
 
     return new Date(this._year, this._month - 1, this._day, 0, 0);
 
   }
-  lastDay(){
+
+  lastDay() {
     if (this._year === null) {
       return null;
     }
 
-    if(this._month === null) {
+    if (this._month === null) {
       return new Date(this._year + 1, 0, 0, 0, 0);
     }
 
-    if(this._day === null) {
+    if (this._day === null) {
       return new Date(this._year, this._month, 0, 0, 0);
     }
 
     return new Date(this._year, this._month - 1, this._day + 1, 0, 0);
-
   }
 }

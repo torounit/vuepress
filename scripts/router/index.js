@@ -5,10 +5,12 @@ import Singular from '../pages/Singular.vue';
 import config from '../utility/config'
 
 Vue.use(VueRouter);
+
 let datePath = config.date_permastruct
   .replace('%year%', ':year(\\d+)')
   .replace('%monthnum%', ':monthnum(\\d+)?')
   .replace('%day%', ':day(\\d+)?')
+
 const routes = [
   {
     path: '/(page/:id\\d+)?',
