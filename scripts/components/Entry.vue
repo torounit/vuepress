@@ -6,12 +6,13 @@
         <category-link :id="categoryID"></category-link>
       </div>
     </header>
-    <div v-html=post.content.rendered></div>
+    <div class="Entry__body" v-html=post.content.rendered @click="click"></div>
   </article>
 
 </template>
 
 <script>
+  import router from '../router'
   import CategoryLink from './CategoryLink.vue';
   export default {
     name: 'Entry',
@@ -25,6 +26,17 @@
         },
         content: {
           rendered: ''
+        }
+      }
+    },
+    methods: {
+      click(event) {
+
+        let target = event.path.find( (e,i) => e.localName === 'a' );
+        let route = router.match( target.href );
+        if( route ) {
+          event.preventDefault();
+          router.push(target.pathname)
         }
       }
     }
