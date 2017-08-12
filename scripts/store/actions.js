@@ -1,6 +1,7 @@
 import * as types from './mutation-types';
 import wp from '../utility/api'
 import Period from '../utility/Period';
+import getTypes from '../utility/getTypes';
 
 wp.vpPost = wp.registerRoute('vuepress/v1', '/post/(?P<url>)');
 
@@ -37,6 +38,12 @@ export const fetchPosts = async ({commit}, route) => {
     },
     ['singular']: async () => {
       let post = await wp.vpPost().url(route.fullPath);
+      let types = await getTypes();
+      let rest_base = types[post.type].rest_base;
+      if ( route.query.preview ) {
+        let revisions = await wp[rest_base]().id( post.id ).revisions();
+        return [revisions[0]]
+      }
       return [post];
     }
   };
