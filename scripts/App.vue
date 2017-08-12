@@ -1,7 +1,7 @@
 <template>
   <div class="App">
     <header class="App__header">
-      <h1><a href="/">{{ name }}</a></h1>
+      <h1><router-link :to="{ path: '/'}">{{name}}</router-link></h1>
     </header>
     <router-view class="view"></router-view>
   </div>
