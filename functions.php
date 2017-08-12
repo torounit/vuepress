@@ -71,29 +71,6 @@ function vuepress_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'vuepress_scripts' );
 
-add_action( 'rest_api_init', function () {
-	$taxonomies = get_taxonomies( [ 'show_in_rest' => true ], 'objects' );
-	foreach ( $taxonomies as $taxonomy ) {
-
-		register_rest_route( 'vuepress/v1', '/' . $taxonomy->rest_base . '/(?P<slug>.*)', array(
-			'methods'  => 'GET',
-			'callback' => function ( $request ) use ( $taxonomy ) {
-				$terms = get_terms( [ 'slug' => $request['slug'], 'taxonomy' => $taxonomy->name ] );
-				if ( empty( $terms ) ) {
-					return null;
-				}
-
-				$request[ $taxonomy->rest_base ] = reset( $terms )->term_id;
-				$response                        = new WP_REST_Posts_Controller( 'post' );
-				$posts                           = $response->get_items( $request );
-
-				return $posts;
-			}
-		) );
-	}
-
-} );
-
 
 add_action( 'rest_api_init', function () {
 
