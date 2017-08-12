@@ -13,23 +13,23 @@ let datePath = config.date_permastruct
 
 const routes = [
   {
-    path: '/(page/:id\\d+)?',
+    path: '/:paging(page)?/:page(\\d+)?',
     name: 'index',
     component: Index,
     //component: config.page_on_front ? Singular : Index
   },
   {
-    path: '/' + config.category_base + '/:term/(page/:id\\d+)?',
+    path: '/' + config.category_base + '/:term/:paging(page)?/:page(\\d+)?',
     name: 'category',
     component: Index,
   },
   {
-    path: '/' + config.tag_base + '/:term/(page/:id\\d+)?',
+    path: '/' + config.tag_base + '/:term/:paging(page)?/:page(\\d+)?',
     name: 'tag',
     component: Index,
   },
   {
-    path: datePath + '(/page)?/:id(\\d+)?',
+    path: datePath + '/:paging(page)?/:page(\\d+)?',
     name: 'date',
     component: Index,
   },

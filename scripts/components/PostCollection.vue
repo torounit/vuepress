@@ -5,6 +5,12 @@
         <Post :post="post"></Post>
       </div>
     </div>
+    <div class="paging">
+      <div v-for="n in totalPages">
+        <router-link :to="{ name: currentRouteName, params: { paging: 'page', page: n }}">{{ n }}</router-link>
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,6 +25,19 @@
     name: 'PostCollection',
     components: {
       Post
+    },
+    computed: {
+      currentRouteName() {
+        console.log(this.$route)
+        return this.$route.name;
+      },
+      totalPages() {
+        if ( this.posts._paging && this.posts._paging.totalPages ) {
+          return parseInt( this.posts._paging.totalPages, 10 );
+        }
+        return 0;
+
+      }
     },
     props: ['posts'],
     methods: {}

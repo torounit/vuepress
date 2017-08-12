@@ -6,17 +6,20 @@ import getTypes from '../utility/getTypes';
 wp.vpPost = wp.registerRoute('vuepress/v1', '/post/(?P<url>)');
 
 export const fetchPosts = async ({commit}, route) => {
-
+  let page = 1;
+  if ( route.params.page ) {
+    page = parseInt( route.params.page, 10 );
+  }
   let loaders = {
     ['category']: async () => {
       let terms = await wp.categories().slug(route.params.term);
       let term = terms[0];
-      return await wp.posts().categories(term.id);
+      return await wp.posts().categories(term.id).page( page );
     },
     ['tag']: async () => {
       let terms = await wp.tags().slug(route.params.term);
       let term = terms[0];
-      return await wp.posts().tags(term.id);
+      return await wp.posts().tags(term.id).page( page );
     },
     ['date']: async () => {
       let period = new Period();
@@ -31,10 +34,11 @@ export const fetchPosts = async ({commit}, route) => {
       }
       return await wp.posts()
         .after(period.firstDay())
-        .before(period.lastDay());
+        .before(period.lastDay())
+        .page( page );
     },
     ['index']: async () => {
-      return await wp.posts();
+      return await wp.posts().page( page );
     },
     ['singular']: async () => {
       let post = await wp.vpPost().url(route.fullPath);
