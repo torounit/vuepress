@@ -1,9 +1,6 @@
 <template>
   <div class="Post">
     <a :href="post.link" @click="goPost">{{ post.title.rendered }}</a>
-    <div class="" v-for="categoryID in post.categories" :key="categoryID">
-      <category-link :id="categoryID"></category-link>
-    </div>
   </div>
 </template>
 <script>
@@ -12,13 +9,9 @@
   import {mapActions} from 'vuex'
   import {selectPost} from '../store/actions';
   import wp from '../utility/api'
-  import CategoryLink from './CategoryLink.vue';
 
   export default {
     name: 'Post',
-    components: {
-      CategoryLink
-    },
     props: ['post'],
     asyncComputed: {},
     methods: {
