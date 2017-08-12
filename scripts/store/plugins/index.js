@@ -1,7 +1,9 @@
 import logger from 'vuex/dist/logger';
+import {undoRedoPlugin} from "./undoRedoPlugin";
 
 const plugins = [
-  logger({})
+  logger({}),
+  undoRedoPlugin
 ];
 
 export default plugins;

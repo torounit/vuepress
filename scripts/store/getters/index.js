@@ -1,5 +1,5 @@
 export const post = state => {
-  let post = state.post;
+  let post = state.posts[0];
   if(post) {
     return post
   }

@@ -69,6 +69,7 @@
   "dependencies": {
     "normalize.css": "^7.0.0",
     "vue": "^2.4.2",
+    "vue-async-computed": "^3.2.1",
     "vue-router": "^2.7.0",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.2.0",

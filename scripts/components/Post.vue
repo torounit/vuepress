@@ -1,25 +1,33 @@
 <template>
   <div class="Post">
     <a :href="post.link" @click="goPost">{{ post.title.rendered }}</a>
+    <div class="" v-for="categoryID in post.categories" :key="categoryID">
+      <category-link :id="categoryID"></category-link>
+    </div>
   </div>
 </template>
 <script>
 
   import router from '../router'
-  import { mapActions } from 'vuex'
+  import {mapActions} from 'vuex'
   import {selectPost} from '../store/actions';
+  import wp from '../utility/api'
+  import CategoryLink from './CategoryLink.vue';
 
   export default {
     name: 'Post',
-    components: {},
+    components: {
+      CategoryLink
+    },
     props: ['post'],
+    asyncComputed: {},
     methods: {
       goPost(event) {
         event.preventDefault();
         let post = this.post;
         let link = new URL(post.link);
         router.push(link.pathname);
-        this.$store.dispatch('selectPost', { post });
+        this.$store.dispatch('selectPost', {post});
 
       }
     }

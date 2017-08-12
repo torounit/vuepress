@@ -6,7 +6,10 @@ import * as getters from './getters';
 import mutations from './mutations';
 import plugins from './plugins';
 import VueRouter from 'vue-router'
+import AsyncComputed from 'vue-async-computed'
 
+
+Vue.use(AsyncComputed)
 Vue.use(Vuex);
 Vue.use(VueRouter);
 

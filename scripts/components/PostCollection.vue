@@ -21,18 +21,7 @@
       Post
     },
     props: ['posts'],
-    methods: {
-      goPost(post) {
-        return false
-        let link = new URL(post.link);
-        //router.push(link.pathname);
-        this.$store.dispatch('selectPost', {
-          post
-        })
-
-        return false
-      }
-    }
+    methods: {}
   }
 </script>
 

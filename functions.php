@@ -47,7 +47,7 @@ add_action( 'after_setup_theme', 'vuepress_setup' );
  * Enqueue scripts and styles.
  */
 function vuepress_scripts() {
-
+	global $wp_rewrite;
 	$theme   = wp_get_theme( get_template() );
 	$version = $theme->get( 'Version' );
 	wp_enqueue_script( 'vuepress-script', get_template_directory_uri() . '/bundle.js', array(
@@ -58,6 +58,9 @@ function vuepress_scripts() {
 		'vuepress-script',
 		'WPSettings',
 		[
+			'root' => esc_url_raw( rest_url() ),
+			'nonce' => wp_create_nonce( 'wp_rest' ),
+			'date_permastruct' => $wp_rewrite->get_date_permastruct(),
 			'page_on_front' => get_option('page_on_front'),
 			'page_for_posts' => get_option('page_for_posts'),
 			'category_base' => get_option('category_base') ? get_option('category_base') : 'category',

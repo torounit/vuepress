@@ -5,13 +5,13 @@ export default {
     state.posts = posts;
   },
   [types.FETCH_POST](state, {post}) {
-    state.post = post;
+    state.posts = [ post ];
   },
   [types.FETCH_CATEGORIES](state, {categories}) {
     state.categories = categories;
   },
   [types.SELECT_POST](state, {post}) {
-    state.post = post
+    state.posts = [ post ];
   },
   [types.ROUTE_CHANGED](state, route) {
 
