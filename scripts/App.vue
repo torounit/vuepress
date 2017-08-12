@@ -1,5 +1,8 @@
 <template>
   <div class="App">
+    <header class="App__header">
+      <h1><a href="/">{{ name }}</a></h1>
+    </header>
     <router-view class="view"></router-view>
   </div>
 </template>
@@ -15,7 +18,20 @@
       '$route' (to, from) {
         this.$store.dispatch('fetchPosts', to );
       }
-    }
+    },
+    asyncComputed: {
+      name: {
+        async get () {
+          let response = await fetch('/wp-json');
+          let data = await response.json()
+          return data.name;
+        },
+        default() {
+          return ''
+        }
+
+      }
+    },
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
