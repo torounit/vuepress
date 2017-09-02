@@ -2,13 +2,17 @@
   <div class="App">
     <header class="App__header">
       <h1><router-link :to="{ path: '/'}">{{name}}</router-link></h1>
+      <search></search>
     </header>
     <router-view class="view"></router-view>
   </div>
 </template>
 
 <script>
+  import Search from "./components/Search.vue";
+
   export default {
+    components: {Search},
     name: 'App',
     created () {
       let route = this.$store.state.route;
