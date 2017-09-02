@@ -11,6 +11,14 @@ export const fetchPosts = async ({commit}, route) => {
     page = parseInt( route.params.page, 10 );
   }
   let loaders = {
+    ['search']: async () => {
+      return await wp.posts().search(route.params.search).page( page );
+    },
+    ['author']: async () => {
+      let users = await wp.users().slug(route.params.author);
+      let user = users[0];
+      return await wp.posts().author(user.id).page( page );
+    },
     ['category']: async () => {
       let terms = await wp.categories().slug(route.params.term);
       let term = terms[0];

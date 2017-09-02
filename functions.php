@@ -60,11 +60,13 @@ function vuepress_scripts() {
 		[
 			'root' => esc_url_raw( rest_url() ),
 			'nonce' => wp_create_nonce( 'wp_rest' ),
-			'date_permastruct' => $wp_rewrite->get_date_permastruct(),
 			'page_on_front' => get_option('page_on_front'),
 			'page_for_posts' => get_option('page_for_posts'),
 			'category_base' => get_option('category_base') ? get_option('category_base') : 'category',
-			'tag_base'      => get_option('tag_base') ? get_option('tag_base') : 'tag'
+			'tag_base'      => get_option('tag_base') ? get_option('tag_base') : 'tag',
+			'search_base'   => $wp_rewrite->search_base,
+			'author_base'   => $wp_rewrite->author_base,
+			'date_permastruct' => $wp_rewrite->get_date_permastruct(),
 		]
 	);
 }
