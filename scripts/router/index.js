@@ -5,7 +5,6 @@ import Singular from '../pages/Singular.vue';
 import config from '../utility/config'
 
 Vue.use(VueRouter);
-
 let datePath = config.date_permastruct
   .replace('%year%', ':year(\\d+)')
   .replace('%monthnum%', ':monthnum(\\d+)?')
@@ -17,6 +16,16 @@ const routes = [
     name: 'index',
     component: Index,
     //component: config.page_on_front ? Singular : Index
+  },
+  {
+    path: '/' + config.search_base + '/:search/:paging(page)?/:page(\\d+)?',
+    name: 'search',
+    component: Index,
+  },
+  {
+    path: '/' + config.author_base + '/:author/:paging(page)?/:page(\\d+)?',
+    name: 'author',
+    component: Index,
   },
   {
     path: '/' + config.category_base + '/:term/:paging(page)?/:page(\\d+)?',
