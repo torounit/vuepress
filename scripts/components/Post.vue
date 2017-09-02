@@ -1,5 +1,6 @@
 <template>
   <div class="Post">
+    <div><time>{{ post.date }}</time></div>
     <a :href="post.link" @click="goPost">{{ post.title.rendered }}</a>
   </div>
 </template>

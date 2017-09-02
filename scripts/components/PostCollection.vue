@@ -5,12 +5,7 @@
         <Post :post="post"></Post>
       </div>
     </div>
-    <div class="paging">
-      <div v-for="n in totalPages">
-        <router-link :to="{ name: currentRouteName, params: { paging: 'page', page: n }}">{{ n }}</router-link>
-
-      </div>
-    </div>
+    <pagination :totalPages="totalPages"></pagination>
   </div>
 </template>
 
@@ -19,18 +14,16 @@
   import router from '../router'
   import { mapActions } from 'vuex'
   import Post from './Post.vue'
+  import Pagination from './Pagination.vue';
   import {selectPost} from '../store/actions';
 
   export default {
     name: 'PostCollection',
     components: {
-      Post
+      Post,
+      Pagination
     },
     computed: {
-      currentRouteName() {
-        console.log(this.$route)
-        return this.$route.name;
-      },
       totalPages() {
         if ( this.posts._paging && this.posts._paging.totalPages ) {
           return parseInt( this.posts._paging.totalPages, 10 );

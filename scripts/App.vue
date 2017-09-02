@@ -44,5 +44,9 @@
     margin: 0;
   }
 
+  .App__header {
+    padding: 16px;
+  }
+
 </style>
 
